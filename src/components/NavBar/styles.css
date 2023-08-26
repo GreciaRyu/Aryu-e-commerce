@@ -1,0 +1,31 @@
+.navbar{
+    background-color: rgb(26, 26, 26);
+}
+.navbar a:link{
+    color: aliceblue;
+}
+.navbar a:visited{
+    color: rgb(191, 147, 212);
+}
+.navbar a:hover{
+    color: rgb(223, 187, 241);
+    text-shadow: 0.1rem 0.1rem violet;
+}
+.navbar a:active{
+    color: aliceblue;
+}
+.navbar--cart{
+    display: inline-flex;
+}
+.navbar--cart img {
+    width: 3rem;
+    height: 3rem;
+}
+.navbar--cart p{
+    border-style: dashed;
+    border-width: 0.1rem;
+    border-radius: 3rem;
+    padding: 0rem 00.5rem 0rem 0.5rem;
+    position: absolute;
+    margin-left: 2rem; 
+}

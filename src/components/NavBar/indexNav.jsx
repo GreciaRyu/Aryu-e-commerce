@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -9,24 +10,24 @@ import "./styles.css";
 const NavBar = () => {
   return (
     <>
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar bg="light" data-bs-theme="light" >
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand as={Link} to="/productos">
         <img
               alt="Logo"
               src={logo}
-              width="60"
-              height="40"
-              className="d-inline-block align-top"
+              width="80"
+              height="50"
             />{' '}
-            Aryu</Navbar.Brand>
+            </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Productos</Nav.Link>
-            <Nav.Link href="#link">Contacto</Nav.Link>
-            <Nav.Link href="#link"><CartWidget /></Nav.Link>
+            <Nav.Link as={Link} to="/productos">Catalogo</Nav.Link>
+            <Nav.Link as={Link} to="/productos/women's clothing">Ropa de Mujer</Nav.Link>
+            <Nav.Link as={Link} to="/productos/jewelery">Accesorios</Nav.Link>
+            <Nav.Link as={Link} to="/productos/electronics">Tecnología</Nav.Link>
+            <Nav.Link as={Link} to="/productos"><CartWidget /></Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

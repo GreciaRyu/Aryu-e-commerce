@@ -1,0 +1,50 @@
+.saludo{
+    color: blueviolet;
+    font-weight: 600;
+    font-size:x-large;
+    font-style: oblique;
+}
+
+.cards {
+    display:inline-flex;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+}
+
+.card--img {
+    min-width: 40%; 
+    max-height: 50%; 
+    width: 100%; 
+    object-fit: cover;
+    object-position: top;
+    
+}
+
+.card--title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.precio {
+    font-style: italic;
+    color: blueviolet;
+}
+
+.card--description {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.btn-light {
+    background-color: blueviolet;
+    color:aliceblue;
+}
+
+.item--description{
+    margin: 2rem 0;
+}

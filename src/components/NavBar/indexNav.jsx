@@ -10,9 +10,9 @@ import "./styles.css";
 const NavBar = () => {
   return (
     <>
-    <Navbar bg="light" data-bs-theme="light" >
+    <Navbar bg="light" data-bs-theme="light" fixed="top" >
       <Container>
-        <Navbar.Brand as={Link} to="/productos">
+        <Navbar.Brand as={Link} to="/">
         <img
               alt="Logo"
               src={logo}
@@ -32,33 +32,6 @@ const NavBar = () => {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-      {/* <div>
-        <nav className="navbar navbar-expand-lg">
-          <div className="container-fluid">
-            <a className="navbar-brand" href="#">
-              <img src={logo} alt="Logo" width="60" height="40" />
-            </a>
-            <div>
-              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                <li className="nav-item">
-                  <a className="nav-link" aria-current="page" href="#">Home</a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">Productos</a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">Contacto</a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                  <CartWidget />
-                  </a>
-                </li>
-              </ul>  
-            </div>
-          </div>
-        </nav>
-      </div>*/}
     </> 
   );
 }

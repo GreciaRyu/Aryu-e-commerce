@@ -31,3 +31,16 @@
     position: absolute;
     margin-left: 2rem; 
 }
+
+body {
+    padding-top: 6rem;
+}
+
+/* .background{
+    background-image: url(/src/images/Elementos-12-12.png);
+    background-repeat: repeat;
+    background-size: 5rem;
+    background-position: 45°;
+    transform:translate(-50%,-50%) rotate(45deg);
+} */
+

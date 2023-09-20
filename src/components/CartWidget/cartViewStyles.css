@@ -1,0 +1,13 @@
+.cart--img {
+    min-width: 5rem; 
+    width: 5rem; 
+    object-fit: cover;
+    object-position: top;
+}
+.cart--title {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

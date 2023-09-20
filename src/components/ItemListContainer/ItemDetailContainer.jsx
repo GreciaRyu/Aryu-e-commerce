@@ -1,19 +1,25 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import ItemDetail from "./ItemDetail";
+import { db } from "../../firebase/client";
+import { doc,getDoc } from "firebase/firestore";
 
 export default function ItemDetailContainer () {
-    const[productDetail, setProductDetail] = useState({})
-    const {id} = useParams()
+    const [productDetail, setProductDetail] = useState({})
+    const { id } = useParams()
 
-    useEffect(()=>{
-        const getItem = async () => {
-        const response = await fetch(`https://fakestoreapi.com/products/${id}`)
-        const item = await response.json()
-        setProductDetail(item)
-    }
+
+    const productRef = doc(db, "products", `${id}`)
+    const getItem = () => { }
+    getDoc(productRef).then((snapshot => {
+        if (snapshot.exists()) {
+            setProductDetail({ id: snapshot.id, ...snapshot.data() })
+        }
+    }))
+
+    useEffect(() => {
         getItem()
-    }, [id])
+    }, [])
 
     return (
         <ItemDetail detail={productDetail}/>

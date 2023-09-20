@@ -24,10 +24,10 @@ const NavBar = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/productos">Catalogo</Nav.Link>
-            <Nav.Link as={Link} to="/productos/women's clothing">Ropa de Mujer</Nav.Link>
-            <Nav.Link as={Link} to="/productos/jewelery">Accesorios</Nav.Link>
-            <Nav.Link as={Link} to="/productos/electronics">Tecnología</Nav.Link>
-            <Nav.Link as={Link} to="/productos"><CartWidget /></Nav.Link>
+            <Nav.Link as={Link} to="/productos/dresses">Vestidos</Nav.Link>
+            <Nav.Link as={Link} to="/productos/shoes">Calzado</Nav.Link>
+            <Nav.Link as={Link} to="/productos/accessories">Accesorios</Nav.Link>
+            <Nav.Link as={Link} to="/cart"><CartWidget /></Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

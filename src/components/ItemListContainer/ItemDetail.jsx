@@ -1,8 +1,8 @@
 import Image from 'react-bootstrap/Image';
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import ItemCount from './ItemCount';
 
 export default function ItemDetail ({ detail }) {
     return(
@@ -15,17 +15,9 @@ export default function ItemDetail ({ detail }) {
             <h1>{detail.title}</h1>
             <h3 className="precio"> ${detail.price}</h3>
             <p className="item--description">{detail.description}</p>
-            <div className='d-flex justify-content-around'>
-                <Button variant="light" /*as={Link} to={``}*/>
-                    Comprar
-                </Button>
-                <Button variant="light" /*as={Link} to={``}*/>
-                    Agregar al carrito
-                </Button>
-            </div>
+            <ItemCount stock={detail.stock} item={detail}></ItemCount>
         </Col>
       </Row>
-      
     </Container>
     );
 }

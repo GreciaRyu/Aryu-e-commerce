@@ -11,3 +11,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.cart--item{
+   border-bottom: blueviolet;
+    border-bottom-width: 0.2rem;
+    border-bottom-style: double;
+    height: 8rem; 
+}

@@ -5,33 +5,34 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import Spinner from 'react-bootstrap/Spinner';
+import Loader from "../Loader/indexLoader";
 import "./stylesContainer.css";
 import { ShopContext } from "../../context/shopContext";
 
 const ItemListContainer =({props}) =>{
     const { products} = useContext(ShopContext)
-    const [productsFilter, setProductsFilter] = useState([])
+    const [productsFilter, setProductsFilter] = useState(products)
     const { id } = useParams()
-    
-    useEffect(()=>{
-        const filtrado = () =>{
-            const filtered = products.filter(product => product.categoryId === id)
-            filtered.length > 0? setProductsFilter(filtered) : setProductsFilter(products)
+
+   function filtrado() {
+        const filtered = products.filter(product => product.categoryId === id)
+        filtered.length > 0 ? setProductsFilter(filtered) : setProductsFilter(products)
     }
-    filtrado()
-    },[id]) 
 
-    if(productsFilter === undefined||productsFilter.length===0){
+    useEffect(() => {
+        filtrado()
+    }, [id])
+
+    useEffect(() => {
+        filtrado()
+    }, [products])
+
+    if(products.length===0||products.length===undefined){
         return(
-            <Container>
-                <Row>
-                    <Col xs lg={8}>
-                        <h3>Cargando...</h3>
-                    </Col>
-                </Row>
-            </Container>
+            <Loader></Loader>
         )}
-
+    
     return (
         <Container fluid>
             <Row className="justify-content-md-center">

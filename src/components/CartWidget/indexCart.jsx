@@ -1,16 +1,18 @@
 import cartImg from "../../images/cart.png";
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { ShopContext } from '../../context/shopContext';
 
 const CartWidget = () => {
-  const {cartQuantity, totalCartQuantity} = useContext(ShopContext)
+  const {totalCartQuantity, cartQuantity, cart} = useContext(ShopContext)
 
-  totalCartQuantity()
+  useEffect(() => {
+    totalCartQuantity()
+}, [])
 
   return(
     <div className="navbar--cart">
       <img src={cartImg} alt="carrito"></img>
-      <p>{cartQuantity}</p>
+      <p>{totalCartQuantity()}</p>
     </div>
   );
 }

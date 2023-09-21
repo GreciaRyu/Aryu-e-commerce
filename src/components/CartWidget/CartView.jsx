@@ -2,21 +2,49 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { ShopContext } from '../../context/shopContext';
 import "./cartViewStyles.css";
 import { Stack } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import gasp from "../../images/shocked-gasp.gif";
 
 const CartView = () => {
     const {cart, limpiarCarrito, removesFromCart, totalCartPrice,totalCart} = useContext(ShopContext) 
-    totalCartPrice()
+    
+    useEffect(() => {
+        totalCartPrice()
+    }, [cart])
+    console.log(cart)
+
+    if(cart===undefined||cart.length===0){
+        return(
+            <Container>
+            <Row>
+                <Col xs lg={7}>
+                    <div className="saludo d-flex justify-content-end">
+                        <img  src={gasp} alt="gif de gatito sorprendido"></img>   
+                    </div>
+                </Col>      
+                <Col xs lg={5}className="d-flex align-items-center">
+                     <div className="saludo">
+                        <h4>¡Oh no, el carrito esta vacio!</h4> 
+                        <Button variant="light" as={Link} to="/productos">
+                            Ir a comprar
+                        </Button>
+                    </div>
+                </Col>
+            </Row>
+        </Container>
+        )}
+
     return (
         <Container>
                 <Row>
+                <Col xs={12} lg={7}>
                 {cart.map(item => (
-                    <>
-                        <Col xs={8} lg={8}>
-                            <div key={item.id}>
+                    <div key={item.id} className='cart--item'>
+                            <div>
                                 <img src={item.image} className="img-thumbnail float-start cart--img" alt={item.title} />
                             </div>
                             <div className='cart--item--title d-flex align-items-center justify-content-evenly'>
@@ -34,10 +62,10 @@ const CartView = () => {
                                     </Button>
                                 </Stack>    
                             </div>
-                        </Col>
-                    </>
+                    </div>
                 ))}
-                    <Col xs={4} lg={4}>
+                </Col>
+                    <Col xs={12} lg={5}>
                         <div className='d-flex justify-content-between align-content-start'>
                             <h3>Mi carrito</h3>
                             <Button variant="dark" onClick={()=> limpiarCarrito()}>

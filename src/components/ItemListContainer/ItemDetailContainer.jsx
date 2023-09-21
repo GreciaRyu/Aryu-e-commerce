@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import ItemDetail from "./ItemDetail";
 import { db } from "../../firebase/client";
 import { doc,getDoc } from "firebase/firestore";
+import Loader from "../Loader/indexLoader";
 
 export default function ItemDetailContainer () {
     const [productDetail, setProductDetail] = useState({})
@@ -20,6 +21,11 @@ export default function ItemDetailContainer () {
     useEffect(() => {
         getItem()
     }, [])
+
+    if(productDetail===undefined){
+        return(
+            <Loader></Loader>
+        )}
 
     return (
         <ItemDetail detail={productDetail}/>

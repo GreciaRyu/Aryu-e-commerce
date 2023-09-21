@@ -4,12 +4,10 @@ import { db } from "../firebase/client"
 
 export const ShopContext = createContext()
 
-
 const ShopComponentContext = ({children}) =>{
-    const [products, setProducts] =useState([]) /*API?*/
+    const [products, setProducts] =useState([])
     const [cart,setCart]= useState([])
     const [totalCart, setTotalCart] =useState(0)
-    const [cartQuantity, setCartQuantity] =useState(0)
 
     const productsRef = collection(db, "products")
     const getProducts = async () => {
@@ -20,7 +18,7 @@ const ShopComponentContext = ({children}) =>{
 
     useEffect(() => {
         getProducts()
-    }, [])
+    }, [products])
 
     function addToCart (item, quantity) {
             if(existsInCart(item.id)){
@@ -47,11 +45,12 @@ const ShopComponentContext = ({children}) =>{
     function removesFromCart (itemID) {
         const newCart = [...cart].filter(product => product.id !== itemID)
         setCart(newCart)
+        totalCartPrice()
+        return(cart)
 
     }
 
     function existsInCart (itemID) {
-        console.log(cart)
         return (cart.find((item) => item.id=== itemID))
     }
 
@@ -69,8 +68,7 @@ const ShopComponentContext = ({children}) =>{
         cart.forEach((product) => {
             totalQuantity+= product.quantity
         })
-        setCartQuantity(totalQuantity)
-        return (cartQuantity)
+        return (totalQuantity)
     }
 
     const limpiarCarrito = () => {
@@ -80,7 +78,7 @@ const ShopComponentContext = ({children}) =>{
 
     return (<ShopContext.Provider value={{
         products,setProducts,cart,totalCart,limpiarCarrito,addToCart,removesFromCart, 
-        totalCartPrice, totalCart, totalCartQuantity, cartQuantity}}>
+        totalCartPrice, totalCart, totalCartQuantity, getProducts}}>
         {children}
     </ShopContext.Provider>
     )

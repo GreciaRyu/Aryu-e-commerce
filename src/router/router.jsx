@@ -8,6 +8,7 @@ import {
   Route,
 } from 'react-router-dom'
 import ShopComponentContext from '../context/shopContext';
+import Order from '../components/Order/indexOrder';
 
 function Router () {
   return (
@@ -20,6 +21,7 @@ function Router () {
           <Route path="/productos/:id" element={<ItemListContainer props="Bienvenido" />} />
           <Route path="/item/:id" element={<ItemDetailContainer />} />
           <Route path="/cart" element={<CartView />} />
+          <Route path="/order" element={<Order />} />
         </Routes>
       </BrowserRouter>
     </ShopComponentContext>

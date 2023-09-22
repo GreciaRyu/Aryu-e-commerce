@@ -1,0 +1,11 @@
+.order--container{
+    width:60%;
+    
+}
+
+form input[type=text]:focus,form input[type=email]:focus,
+form input[type=tel]:focus, form textarea:focus{
+    border: 0.1rem solid blueviolet; 
+    color: blueviolet;
+    box-shadow: 0.1rem 0.1rem 0rem rgba(138, 63, 237, 0.825);
+}

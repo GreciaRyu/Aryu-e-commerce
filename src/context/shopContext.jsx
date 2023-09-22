@@ -78,7 +78,7 @@ const ShopComponentContext = ({children}) =>{
 
     return (<ShopContext.Provider value={{
         products,setProducts,cart,totalCart,limpiarCarrito,addToCart,removesFromCart, 
-        totalCartPrice, totalCart, totalCartQuantity, getProducts}}>
+        totalCartPrice, totalCart, totalCartQuantity, getProducts,}}>
         {children}
     </ShopContext.Provider>
     )

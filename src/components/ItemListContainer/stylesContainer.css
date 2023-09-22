@@ -5,31 +5,6 @@
     font-style: oblique;
 }
 
-.loader{
-    color: blueviolet;
-    font-size:x-large;
-    margin: 1rem; 
-}
-
-.loader h4{
-    font-style: oblique;
-    padding: 1rem 1rem; 
-    font-weight: 600;
-    text-shadow: 0.08rem 0.08rem rgb(97, 0, 141);
-    animation: glow 1s infinite alternate;
-}
-
-@keyframes glow {
- from {
-   text-shadow: 0.09rem 0.09rem rgba(96, 0, 141, 0.872);
- }
- to {
-    text-shadow: 0.08rem 0.08rem #e5c8f3;
- }
-}
- 
-
-
 .cards {
     display:inline-flex;
     justify-content: center;
@@ -68,8 +43,20 @@
 .btn-light {
     background-color: blueviolet;
     color:aliceblue;
+    
+}
+
+.btn-light:hover {
+    color: #7f1dd9;
+    background-color: #dcb6ee;
+    border-color: blueviolet;
 }
 
 .item--description{
     margin: 2rem 0;
 }
+
+
+
+       
+        

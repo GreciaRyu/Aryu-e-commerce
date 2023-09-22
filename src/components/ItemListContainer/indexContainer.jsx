@@ -5,7 +5,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import Spinner from 'react-bootstrap/Spinner';
 import Loader from "../Loader/indexLoader";
 import "./stylesContainer.css";
 import { ShopContext } from "../../context/shopContext";

@@ -9,13 +9,13 @@ import { Stack } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import gasp from "../../images/shocked-gasp.gif";
 
+
 const CartView = () => {
     const {cart, limpiarCarrito, removesFromCart, totalCartPrice,totalCart} = useContext(ShopContext) 
     
     useEffect(() => {
         totalCartPrice()
     }, [cart])
-    console.log(cart)
 
     if(cart===undefined||cart.length===0){
         return(
@@ -40,12 +40,12 @@ const CartView = () => {
 
     return (
         <Container>
-                <Row>
+            <Row>
                 <Col xs={12} lg={7}>
-                {cart.map(item => (
-                    <div key={item.id} className='cart--item'>
+                    {cart.map(item => (
+                        <div key={item.id} className='cart--item'>
                             <div>
-                                <img src={item.image} className="img-thumbnail float-start cart--img" alt={item.title} />
+                                <img src={item.image} alt={item.title} className="img-thumbnail float-start cart--img"  />
                             </div>
                             <div className='cart--item--title d-flex align-items-center justify-content-evenly'>
                                 <h3 className='cart--title'>{item.title}</h3>
@@ -54,30 +54,33 @@ const CartView = () => {
                             </div>
                             <div className='d-flex justify-content-center'>
                                 <Stack direction="horizontal" gap={1}>
-                                    <Button variant="dark" onClick={()=>removesFromCart(item.id)}>
+                                    <Button variant="dark" onClick={() => removesFromCart(item.id)}>
                                         Eliminar
                                     </Button>
-                                    <Button variant="dark" >
+                                    <Button variant="dark" as={Link} to={`/item/${item.id}`} >
                                         ver detalles
                                     </Button>
-                                </Stack>    
+                                </Stack>
                             </div>
-                    </div>
-                ))}
-                </Col>
-                    <Col xs={12} lg={5}>
-                        <div className='d-flex justify-content-between align-content-start'>
-                            <h3>Mi carrito</h3>
-                            <Button variant="dark" onClick={()=> limpiarCarrito()}>
-                                Limpiar carrito
-                            </Button>
                         </div>
-                            <h4>Total a pagar: 
-                                <span className="precio">${totalCart}</span> 
-                            </h4>
-                    </Col>
-                </Row>
-        </Container >
+                    ))}
+                </Col>
+                <Col xs={12} lg={5}>
+                    <div>
+                        <h4>Total a pagar: <span className="precio">${totalCart}</span>
+                        </h4>
+                    </div>
+                    <Stack gap={2} className="col-md-4 mx-auto">
+                        <Button variant="light" as={Link} to={"/order"}>
+                            Comprar carrito
+                        </Button>
+                        <Button variant="outline-danger" onClick={() => limpiarCarrito()}>
+                            Limpiar carrito
+                        </Button>
+                    </Stack>
+                </Col>
+            </Row>
+        </Container>
     )
 }
 export default CartView

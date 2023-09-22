@@ -22,7 +22,7 @@ export default function ItemDetailContainer () {
         getItem()
     }, [])
 
-    if(productDetail===undefined){
+    if(Object.keys(productDetail).length===0){
         return(
             <Loader></Loader>
         )}

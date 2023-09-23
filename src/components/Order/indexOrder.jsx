@@ -4,7 +4,8 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { ShopContext } from '../../context/shopContext';
-import { useContext, useEffect} from 'react';
+import { useContext, useEffect, useState} from 'react';
+import OrderModal from './OrderModal';
 import "./orderStyles.css";
 
 
@@ -14,6 +15,8 @@ export default function Order () {
     useEffect(() => {
         totalCartPrice()
     }, [cart])
+
+    const [showModal, setShowModal] = useState(false)
 
     return(
     <>
@@ -102,9 +105,12 @@ export default function Order () {
                         </Form.Group>
                     </Row>   
                     <Row>
-                        <Button variant="light" className="mb-4" /*onClick={}*/>
+                        <Button variant="light" className="mb-4" onClick={() => setShowModal(true)}>
                             Finalizar compra
                         </Button>
+                        {showModal? (
+                            <OrderModal onClose={() => setShowModal(false)} />
+                        ):<></>}
                     </Row> 
                 </Form>
         </Container>

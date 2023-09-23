@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState,  useContext } from "react";
 import Button from 'react-bootstrap/Button';
-import { useContext } from "react";
+import { Stack } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { ShopContext } from "../../context/shopContext";
 
 const ItemCount = ({stock, item}) =>{
@@ -19,19 +20,23 @@ const ItemCount = ({stock, item}) =>{
 
     return(
         <>
-            <div className='d-flex justify-content-evenly'>
-            <h5>Cantidad</h5>
-                <Button variant="dark" onClick={restar}>-</Button>
-                <h4>{quantity}</h4>
-                <Button variant="dark" onClick={sumar}>+</Button>
-            </div>
-            <div className='d-flex justify-content-around'>
-                <Button variant="light" /*as={Link} to={``}*/disabled={!stock}>
-                    Comprar
-                </Button>
-                <Button variant="light" onClick={()=> addToCart(item,quantity)} disabled={!stock}>
-                    Agregar al carrito
-                </Button>
+            <div className='d-flex align-items-center justify-items-center'>
+            <h5 className='mx-2'>Cantidad:</h5>
+                <Stack direction="horizontal" gap={2} className="mx-2">
+                    <Button variant="dark" onClick={restar}>-</Button>
+                    <h5>{quantity}</h5>
+                    <Button variant="dark" onClick={sumar}>+</Button>
+                    <div>
+                        <Button variant="light" onClick={()=> addToCart(item,quantity)} 
+                        as={Link} to={"/cart"} disabled={!stock} className='ms-2'>
+                            Comprar
+                        </Button>
+                        <Button variant="light" onClick={()=> addToCart(item,quantity)} d
+                        isabled={!stock} className='ms-2'>
+                            Agregar al carrito
+                    </Button> 
+                    </div>  
+                </Stack>
             </div>
         </>
     )

@@ -65,12 +65,12 @@ const CartView = () => {
                         </div>
                     ))}
                 </Col>
-                <Col xs={12} lg={5}>
+                <Col xs={12} lg={5} className="justify-items-center">
                     <div>
                         <h4>Total a pagar: <span className="precio">${totalCart}</span>
                         </h4>
                     </div>
-                    <Stack gap={2} className="col-md-4 mx-auto">
+                    <Stack direction="horizontal" gap={2} className="col mx-auto">
                         <Button variant="light" as={Link} to={"/order"}>
                             Comprar carrito
                         </Button>

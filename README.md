@@ -12,15 +12,15 @@ Simula un e-commerce y sus funciones básicas en ReactJS, tales como:
 
 ## ¿Cómo levantar el proyecto?
 
-`npm install`
+`npm install`<br>
 utilizalo para intalar los módulos necesarios para correr la aplicación en modo desarrollo.
 
-`npm start`
+`npm start`<br>
 Al ejecutarlo podras correr la aplicació en modo desarrollo, se abrirá la url: [http://localhost:3000](http://localhost:3000) y podrás visualizar el proyecto en tu navegador
 
 ## Otras dependencias:
-[React Bootstrap:](https://react-bootstrap.github.io) Fue utilizada para dar base a los estilos mediante el uso de sus clases y componentes.
-[Firebase:](https://firebase.google.com/) Fue utilizada para almacenar y consultar los datos de los productos utilizados en esta aplicación
+<br>[React Bootstrap:](https://react-bootstrap.github.io) Fue utilizada para dar base a los estilos mediante el uso de sus clases y componentes.
+<br>[Firebase:](https://firebase.google.com/) Fue utilizada para almacenar y consultar los datos de los productos utilizados en esta aplicación
 
 ## Quiero saber más sobre React
 

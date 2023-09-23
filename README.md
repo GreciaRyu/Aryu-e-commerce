@@ -1,13 +1,12 @@
 # Aryu
 Esta página es un proyecto con fines educativos.
 Simula un e-commerce y sus funciones básicas en ReactJS, tales como:
- ##### 1.- Visualizar los productos de la tienda
- ##### 2.- Escoger aquellos productos que quieras comprar.
- ##### 3.- Editar tu compra en el carrito.
- ##### 4.- Visualizar tu orden de compra.
- ##### 5.- Completar un formulario con tus datos de compra
- ##### 6.- Finalizar tu compra
- ##### -
+ 1.- Visualizar los productos de la tienda
+ 2.- Escoger aquellos productos que quieras comprar.
+ 3.- Editar tu compra en el carrito.
+ 4.- Visualizar tu orden de compra.
+ 5.- Completar un formulario con tus datos de compra
+ 6.- Finalizar tu compra
 
 ## ¿Cómo levantar el proyecto?
 
